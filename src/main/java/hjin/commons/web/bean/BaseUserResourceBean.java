@@ -1,6 +1,6 @@
 package hjin.commons.web.bean;
 
-public interface BaseUserResourceViewBean {
+public interface BaseUserResourceBean {
     String getResourcetype();
 
     void setResourcetype(String resourceType);

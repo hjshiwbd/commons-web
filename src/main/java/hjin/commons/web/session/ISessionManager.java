@@ -2,7 +2,7 @@ package hjin.commons.web.session;
 
 import hjin.commons.web.bean.BaseUrlBean;
 import hjin.commons.web.bean.BaseUserBean;
-import hjin.commons.web.bean.BaseUserResourceViewBean;
+import hjin.commons.web.bean.BaseUserResourceBean;
 
 import java.util.List;
 import java.util.Map;
@@ -26,14 +26,14 @@ public interface ISessionManager {
      *
      * @return
      */
-    BaseUserBean getLoginUser();
+    <T extends BaseUserBean> T getLoginUser();
 
     /**
      * 用户登录成功,设置session
      *
      * @param user
      */
-    void setUserLogined(BaseUserBean user);
+    <T extends BaseUserBean> void setUserLogined(T user);
 
     /**
      * 判断是否是superuser
@@ -47,42 +47,42 @@ public interface ISessionManager {
      *
      * @param list
      */
-    void setMenuList(List<BaseUrlBean> list);
+    void setMenuList(List<? extends BaseUrlBean> list);
 
     /**
      * 登录后该用户可见的菜单
      *
      * @return
      */
-    List<BaseUrlBean> getMenuList();
+    List<? extends BaseUrlBean> getMenuList();
 
     /**
      * 扁平化的菜单列表
      *
      * @param menuList
      */
-    void setFlatMenuList(List<BaseUrlBean> menuList);
+    void setFlatMenuList(List<? extends BaseUrlBean> menuList);
 
     /**
      * 设置
      *
      * @return
      */
-    List<BaseUrlBean> getFlatMenuList();
+    List<? extends BaseUrlBean> getFlatMenuList();
 
     /**
      * 设置资源权限
      *
      * @return
      */
-    void setPrivs(List<BaseUserResourceViewBean> privs);
+    void setPrivs(List<? extends BaseUserResourceBean> privs);
 
     /**
      * 资源权限
      *
      * @return
      */
-    List<BaseUserResourceViewBean> getPrivs();
+    List<? extends BaseUserResourceBean> getPrivs();
 
     Map<String, Object> getCaptcha();
 
@@ -92,6 +92,7 @@ public interface ISessionManager {
 
     /**
      * 访问浏览器
+     *
      * @return
      */
     String getVisitBrowser();
@@ -100,6 +101,7 @@ public interface ISessionManager {
 
     /**
      * 访问设备
+     *
      * @return
      */
     String getVisitDevice();
@@ -110,7 +112,7 @@ public interface ISessionManager {
 
     void setViewPrefix(String viewPrefix);
 
-    List<BaseUrlBean> getWxMenuList();
+    List<? extends BaseUrlBean> getWxMenuList();
 
-    void setWxMenuList(List<BaseUrlBean> wxMenuList);
+    void setWxMenuList(List<? extends BaseUrlBean> wxMenuList);
 }

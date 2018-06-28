@@ -2,7 +2,7 @@ package hjin.commons.web.privilege.jsptag;
 
 import commons.tool.utils.JsonUtil;
 import commons.tool.utils.SpringContextUtil;
-import hjin.commons.web.bean.BaseUserResourceViewBean;
+import hjin.commons.web.bean.BaseUserResourceBean;
 import hjin.commons.web.session.ISessionManager;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.tags.RequestContextAwareTag;
@@ -33,13 +33,13 @@ public class PrivTag extends RequestContextAwareTag {
         if (sessionManager.isSuperUser()) {
             return true;
         }
-        List<BaseUserResourceViewBean> pagePrivs = getParsedList();
-        for (BaseUserResourceViewBean b1 : pagePrivs) {// 请求中的权限
+        List<BaseUserResourceBean> pagePrivs = getParsedList();
+        for (BaseUserResourceBean b1 : pagePrivs) {// 请求中的权限
             if (b1.getResourcetype() == null) {
                 b1.setResourcetype("action");
             }
             if (sessionManager.getPrivs() != null) {
-                for (BaseUserResourceViewBean b2 : sessionManager.getPrivs()) {// 用户所有权限
+                for (BaseUserResourceBean b2 : sessionManager.getPrivs()) {// 用户所有权限
                     if (b1.getResourceid().equals(b2.getResourceid())
                             && b1.getResourcetype().equals(b2.getResourcetype())) {
                         return true;
@@ -50,12 +50,12 @@ public class PrivTag extends RequestContextAwareTag {
         return false;
     }
 
-    public List<BaseUserResourceViewBean> getParsedList() {
+    public List<BaseUserResourceBean> getParsedList() {
         if (StringUtils.isBlank(resourceJson)) {
             throw new RuntimeException("resourceJson are empty");
         }
 
-        return JsonUtil.toObjList(resourceJson, BaseUserResourceViewBean.class);
+        return JsonUtil.toObjList(resourceJson, BaseUserResourceBean.class);
     }
 
     public String getResourceJson() {
