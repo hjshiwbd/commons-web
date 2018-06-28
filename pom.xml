@@ -4,7 +4,7 @@
     <groupId>hjin.commons</groupId>
     <artifactId>commons-web</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>commons-web</name>
     <url>https://github.com/hjshiwbd</url>
 
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>hjin.commons</groupId>
             <artifactId>commons-mysql</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>net.pusuo</groupId>
