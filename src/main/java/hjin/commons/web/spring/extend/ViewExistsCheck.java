@@ -1,4 +1,4 @@
-package com.hbrz.commons.spring.extend;
+package hjin.commons.web.spring.extend;
 
 import org.springframework.web.servlet.view.InternalResourceView;
 
