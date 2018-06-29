@@ -4,11 +4,17 @@
     <groupId>hjin.commons</groupId>
     <artifactId>commons-web</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>commons-web</name>
     <url>https://github.com/hjshiwbd</url>
 
     <description>
+        ---
+        1.0.2
+        ViewExistsCheck的bug
+        ---
+        1.0.1
+        升级commons-mysql
         ---
         1.0.0
         初始化
