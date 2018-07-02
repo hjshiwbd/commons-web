@@ -4,11 +4,14 @@
     <groupId>hjin.commons</groupId>
     <artifactId>commons-web</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>commons-web</name>
     <url>https://github.com/hjshiwbd</url>
 
     <description>
+        ---
+        1.0.3
+        升级commons-mysql,修复bug
         ---
         1.0.2
         ViewExistsCheck的bug
@@ -30,7 +33,7 @@
         <dependency>
             <groupId>hjin.commons</groupId>
             <artifactId>commons-mysql</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
         </dependency>
         <dependency>
             <groupId>net.pusuo</groupId>
@@ -100,7 +103,7 @@
             </plugin>
         </plugins>
     </build>
-
+    <!--
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
@@ -113,4 +116,5 @@
             <url>http://dev001.rz:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
+    -->
 </project>
