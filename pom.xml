@@ -4,11 +4,14 @@
     <groupId>hjin.commons</groupId>
     <artifactId>commons-web</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <name>commons-web</name>
     <url>https://github.com/hjshiwbd</url>
 
     <description>
+        ---
+        1.0.4
+        自研的commons系设置为provided
         ---
         1.0.3
         升级commons-mysql,修复bug
@@ -34,6 +37,7 @@
             <groupId>hjin.commons</groupId>
             <artifactId>commons-mysql</artifactId>
             <version>1.0.4</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.pusuo</groupId>
