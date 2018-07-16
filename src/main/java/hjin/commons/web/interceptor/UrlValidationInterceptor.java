@@ -1,15 +1,19 @@
 package hjin.commons.web.interceptor;
 
+import hjin.commons.web.bean.BaseUrlBean;
 import hjin.commons.web.service.IBaseUrlService;
+import hjin.commons.web.session.ISessionManager;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Map;
 
 public class UrlValidationInterceptor extends HandlerInterceptorAdapter {
 
@@ -19,6 +23,10 @@ public class UrlValidationInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
     private IBaseUrlService urlService;
+    @Autowired
+    private ISessionManager session;
+    @Value("${database.dynamic.mode:false}")
+    private String isDynamicDataSource;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -40,7 +48,7 @@ public class UrlValidationInterceptor extends HandlerInterceptorAdapter {
             uri = StringUtils.substringBefore(uri, ";jsessionid");
         }
         uri = resolve(uri);
-        if (urlService.getActiveUrls(false).get(uri) == null) {
+        if (isUrlValid(uri)) {
             // 404
             logger.info("@@@@@@@@@unknown_request:{}", uri);
             response.setStatus(404);
@@ -48,6 +56,26 @@ public class UrlValidationInterceptor extends HandlerInterceptorAdapter {
             return false;
         } else {
             return super.preHandle(request, response, handler);
+        }
+    }
+
+    /**
+     * uri是否合法
+     *
+     * @param uri
+     * @return
+     */
+    private boolean isUrlValid(String uri) throws Exception {
+        Map<String, ? extends BaseUrlBean> m;
+        if ("on".equalsIgnoreCase(isDynamicDataSource)) {
+            m = urlService.getActiveUrls(session.getDynamicDatabaseId(), false);
+        } else {
+            m = urlService.getActiveUrls(false);
+        }
+        if (m == null) {
+            throw new Exception("no_urls_found");
+        } else {
+            return m.get(uri) == null;
         }
     }
 

@@ -115,4 +115,19 @@ public interface ISessionManager {
     List<? extends BaseUrlBean> getWxMenuList();
 
     void setWxMenuList(List<? extends BaseUrlBean> wxMenuList);
+
+    /**
+     * 多数据源时,当前会话用户所访问的dbid.
+     *
+     * @param databaseId null时,设为"0"
+     * @return
+     */
+    void setDynamicDatabaseId(String databaseId);
+
+    /**
+     * 多数据源时,当前会话用户所访问的dbid,默认0
+     *
+     * @return
+     */
+    String getDynamicDatabaseId();
 }
