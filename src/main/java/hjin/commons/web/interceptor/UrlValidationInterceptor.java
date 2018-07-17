@@ -50,7 +50,7 @@ public class UrlValidationInterceptor extends HandlerInterceptorAdapter {
         uri = resolve(uri);
         if (isUrlValid(uri)) {
             // 404
-            logger.info("@@@@@@@@@unknown_request:{}", uri);
+            logger.info("@@@@@@@@@unknown_request:{} in db {}", uri, session.getDynamicDatabaseId());
             response.setStatus(404);
             response.sendRedirect(request.getContextPath() + "/404");
             return false;
