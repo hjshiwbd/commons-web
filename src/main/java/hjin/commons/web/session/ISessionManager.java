@@ -130,4 +130,17 @@ public interface ISessionManager {
      * @return
      */
     String getDynamicDatabaseId();
+
+    /**
+     * 多数据源时,当前会话用户所属的企业id
+     * @param companyId
+     */
+    void setCompanyId(String companyId);
+
+    /**
+     * 多数据源时,当前会话用户所属的企业id
+     * @param companyId
+     * @return
+     */
+    String getCompanyId(String companyId);
 }

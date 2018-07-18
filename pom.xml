@@ -4,11 +4,14 @@
     <groupId>hjin.commons</groupId>
     <artifactId>commons-web</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <name>commons-web</name>
     <url>https://github.com/hjshiwbd</url>
 
     <description>
+        ---
+        1.0.6
+        增加多数据源时,用户的企业id
         ---
         1.0.5
         加入对动态数据源的支持
