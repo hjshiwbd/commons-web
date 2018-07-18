@@ -4,7 +4,7 @@
     <groupId>hjin.commons</groupId>
     <artifactId>commons-web</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <name>commons-web</name>
     <url>https://github.com/hjshiwbd</url>
 
