@@ -48,7 +48,7 @@ public class UrlValidationInterceptor extends HandlerInterceptorAdapter {
             uri = StringUtils.substringBefore(uri, ";jsessionid");
         }
         uri = resolve(uri);
-        if (isUrlValid(uri)) {
+        if (!isUrlValid(uri)) {
             // 404
             logger.info("@@@@@@@@@unknown_request:{} in db {}", uri, session.getDynamicDatabaseId());
             response.setStatus(404);
@@ -75,7 +75,7 @@ public class UrlValidationInterceptor extends HandlerInterceptorAdapter {
         if (m == null) {
             throw new Exception("no_urls_found");
         } else {
-            return m.get(uri) == null;
+            return m.get(uri) != null;
         }
     }
 
