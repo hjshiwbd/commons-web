@@ -4,11 +4,14 @@
     <groupId>hjin.commons</groupId>
     <artifactId>commons-web</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
     <name>commons-web</name>
     <url>https://github.com/hjshiwbd</url>
 
     <description>
+        ---
+        1.0.10
+        取消CommonControllerAdvisor的@ControllerAdvice属性
         ---
         1.0.9
         超管用户admin->rzadmin
