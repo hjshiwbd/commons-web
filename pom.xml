@@ -50,8 +50,14 @@
     <dependencies>
         <dependency>
             <groupId>hjin.commons</groupId>
+            <artifactId>commons-tool</artifactId>
+            <version>1.1.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>hjin.commons</groupId>
             <artifactId>commons-mysql</artifactId>
-            <version>1.0.4</version>
+            <version>1.1.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
